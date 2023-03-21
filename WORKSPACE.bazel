@@ -17,13 +17,12 @@ python_register_toolchains(
 )
 
 load("@python39//:defs.bzl", "interpreter")
-
 load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
-  name = "pypi",
-  python_interpreter_target = interpreter,
-  requirements_lock = "//projects/flask:requirements.lock.txt",
+    name = "pypi",
+    python_interpreter_target = interpreter,
+    requirements_lock = "//projects/flask:requirements.lock.txt",
 )
 
 load("@pypi//:requirements.bzl", "install_deps")
@@ -50,20 +49,12 @@ http_archive(
     ],
 )
 
-
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
-load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
+load("//:deps.bzl", "go_dependencies")
 
-############################################################
-# Define your own dependencies here using go_repository.
-# Else, dependencies declared by rules_go/gazelle will be used.
-# The first declaration of an external repository "wins".
-############################################################
-go_repository(
-  name = "com_github_gorilla_mux",
-  importpath = "github.com/gorilla/mux",
-  tag = "v1.8.0",
-)
+# gazelle:repository_macro deps.bzl%go_dependencies
+go_dependencies()
 
 go_rules_dependencies()
 

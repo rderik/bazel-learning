@@ -1,11 +1,11 @@
-package go_web
+package main
 import (
   "log"
   "fmt"
   "net/http"
   "math/rand"
 
-  "github.com/gorilla/mux"
+  "github.com/gin-gonic/gin"
   "github.com/rderik/bazel-learning/projects/go-libs/calculator"
 )
 
@@ -16,7 +16,7 @@ func WebHandler(w http.ResponseWriter, r * http.Request) {
 }
 
 func main() {
-    r := mux.NewRouter()
-    r.HandleFunc("/", WebHandler) 
-    http.Handle("/", r)
+    r := gin.Default()
+    r.GET("/", WebHandler) 
+    r.Run("0.0.0.0:8080")
 }
