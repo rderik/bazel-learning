@@ -1,0 +1,24 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+gazelle(
+    name = "gazelle")
+gazelle(
+    name = "gazelle-update-repos",
+    args = [
+        "-from_file=projects/go-web/go.mod",
+        "-to_macro=deps.bzl%go_dependencies",
+        "-prune",
+    ],
+    command = "update-repos",
+)
+
+load("@io_bazel_rules_go//go:def.bzl", "go_binary")
+
+go_binary(
+  name = "go-web",
+  srcs = ["main.go"],
+  deps = [
+    "//projects/go-libs/calculator",
+    "@com_github_gin_gonic_gin//:go_default_library",
+  ],
+)
