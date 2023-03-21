@@ -1,11 +1,14 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
-# gazelle:prefix github.com/example/project
-# gazelle:build_file_name BUILD,BUILD.bazel
-
 go_library(
     name = "calculator",
     srcs = ["calculator.go"],
     importpath = "github.com/rderik/bazel-learning/projects/go-libs/calculator",
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "calculator_test",
+    srcs = ["calculator_test.go"],
+    embed = [":calculator"],
 )
