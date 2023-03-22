@@ -1,14 +1,22 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
-go_library(
-    name = "calculator",
-    srcs = ["calculator.go"],
-    importpath = "github.com/rderik/bazel-learning/projects/go-libs/calculator",
-    visibility = ["//visibility:public"],
-)
+# gazelle:prefix github.com/rderik/bazel-learning/projects/go-libs/calculator
 
 go_test(
     name = "calculator_test",
     srcs = ["calculator_test.go"],
     embed = [":calculator"],
+)
+
+go_test(
+    name = "lib_test",
+    srcs = ["calculator_test.go"],
+    embed = [":calculator"],
+)
+
+go_library(
+    name = "calculator",
+    srcs = ["calculator.go"],
+    importpath = "github.com/rderik/bazel-learning/projects/go-libs/calculator",
+    visibility = ["//visibility:public"],
 )

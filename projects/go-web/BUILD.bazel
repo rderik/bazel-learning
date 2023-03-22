@@ -1,7 +1,12 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
+# gazelle:prefix github.com/rderik/bazel-learning/projects/go-libs/
+# gazelle:build_file_name BUILD,BUILD.bazel
+
 gazelle(
-    name = "gazelle")
+    name = "gazelle",
+)
+
 gazelle(
     name = "gazelle-update-repos",
     args = [
@@ -12,13 +17,21 @@ gazelle(
     command = "update-repos",
 )
 
-load("@io_bazel_rules_go//go:def.bzl", "go_binary")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
 go_binary(
-  name = "go-web",
-  srcs = ["main.go"],
-  deps = [
-    "//projects/go-libs/calculator",
-    "@com_github_gin_gonic_gin//:go_default_library",
-  ],
+    name = "go-web",
+    embed = [":lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "lib",
+    srcs = ["main.go"],
+    importpath = "github.com/rderik/bazel-learning/projects/go-libs/",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//projects/go-libs/calculator",
+        "@com_github_gin_gonic_gin//:go_default_library",
+    ],
 )
