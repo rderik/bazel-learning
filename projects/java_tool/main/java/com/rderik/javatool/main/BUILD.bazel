@@ -1,0 +1,9 @@
+java_binary(
+  name = "javatool",
+  srcs = ["JavaTool.java"],
+  main_class = "com.rderik.javatool.main.JavaTool",
+  deps = [
+    "@maven//:io_javalin_javalin_5_4_2",
+    "//projects/java_tool/main/java/com/rderik/javatool/calculator",
+  ],
+)
