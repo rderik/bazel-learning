@@ -1,5 +1,8 @@
 java_library(
   name = "calculator",
   srcs = ["Calculator.java"],
-  visibility = ["//projects/java_tool/main/java/com/rderik/javatool/main:__subpackages__"],
+  visibility = [
+    "//projects/java_tool/main/java/com/rderik/javatool/main:__subpackages__",
+    "//projects/java_tool/main/java/com/rderik/javatool/calculator_test:__subpackages__",
+  ],
 )

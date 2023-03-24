@@ -1,0 +1,7 @@
+java_test(
+  name = "CalculatorTest",
+  srcs = ["CalculatorTest.java"],
+  deps = [
+    "//projects/java_tool/main/java/com/rderik/javatool/calculator",
+  ]
+)
