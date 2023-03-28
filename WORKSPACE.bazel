@@ -22,7 +22,7 @@ load("@rules_python//python:pip.bzl", "pip_parse")
 pip_parse(
     name = "pypi",
     python_interpreter_target = interpreter,
-    requirements_lock = "//projects/flask:requirements.lock.txt",
+    requirements_lock = "//projects/py_web:requirements.lock.txt",
 )
 
 load("@pypi//:requirements.bzl", "install_deps")
