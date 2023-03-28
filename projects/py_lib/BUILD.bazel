@@ -1,13 +1,13 @@
 py_library(
     name = "calculator",
     srcs = ["calculator.py"],
-    visibility = ["//projects/flask:__pkg__"],
+    visibility = ["//projects/py_web:__pkg__"],
 )
 
 py_test(
     name = "calculator_test",
     srcs = ["calculator_test.py"],
     deps = [
-        "//projects/lib:calculator",
+        "//projects/py_lib:calculator",
     ],
 )

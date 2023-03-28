@@ -1,5 +1,5 @@
 import unittest
-from projects.lib.calculator import Calculator
+from projects.py_lib.calculator import Calculator
 
 class TestSum(unittest.TestCase):
     def test_sum(self):

@@ -18,7 +18,7 @@ py_binary(
     name = "main",
     srcs = ["main.py"],
     deps = [
-        "//projects/lib:calculator",
+        "//projects/py_lib:calculator",
         "@pypi_flask//:pkg",
     ],
 )
