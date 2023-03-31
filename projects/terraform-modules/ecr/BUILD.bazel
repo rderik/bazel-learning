@@ -1,0 +1,3 @@
+load("//:bazel/terraform.bzl", "terraform_fmt")
+
+terraform_fmt(

@@ -1,0 +1,25 @@
+load("//bazel/toolchains/terraform:toolchain.bzl", "terraform_toolchain")
+
+toolchain_type(
+    name = "toolchain_type",
+    visibility = ["//visibility:public"],
+)
+
+terraform_toolchain(
+    name = "terraform_linux",
+    command = "terraform",
+)
+
+toolchain(
+    name = "terraform_linux_toolchain",
+    exec_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
+    target_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
+    toolchain = ":terraform_linux",
+    toolchain_type = ":toolchain_type",
+)
