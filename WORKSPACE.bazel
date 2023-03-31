@@ -103,4 +103,4 @@ pinned_maven_install()
 
 # Terraform
 
-register_toolchains("//bazel/toolchains/terraform:toolchain")
+register_toolchains("//bazel/toolchains/terraform_tools:terraform_linux_toolchain")

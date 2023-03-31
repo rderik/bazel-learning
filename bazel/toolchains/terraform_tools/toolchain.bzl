@@ -1,7 +1,12 @@
+TerraformInfo = provider(
+    doc = "Information about how to invoke Terraform.",
+    fields = ["executable"],
+)
+
 def _terraform_toolchain_impl(ctx):
     toolchain_info = platform_common.ToolchainInfo(
-        barcinfo = TerraformInfo(
-            command = ctx.attr.command,
+        terraform = TerraformInfo(
+            executable = ctx.attr.executable,
         ),
     )
     return [toolchain_info]
@@ -9,6 +14,6 @@ def _terraform_toolchain_impl(ctx):
 terraform_toolchain = rule(
     implementation = _terraform_toolchain_impl,
     attrs = {
-        "command": attr.string(),
+        "executable": attr.string(),
     },
 )

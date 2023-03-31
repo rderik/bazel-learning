@@ -1,4 +1,4 @@
-load("//bazel/toolchains/terraform:toolchain.bzl", "terraform_toolchain")
+load("//bazel/toolchains/terraform_tools:toolchain.bzl", "terraform_toolchain")
 
 toolchain_type(
     name = "toolchain_type",
@@ -7,7 +7,7 @@ toolchain_type(
 
 terraform_toolchain(
     name = "terraform_linux",
-    command = "terraform",
+    executable = "terraform",
 )
 
 toolchain(
