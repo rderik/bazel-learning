@@ -3,10 +3,10 @@
   gather_facts: false
   hosts: server
   pre_tasks:
-    - raw: test -e /usr/bin/python3 || (apt -y update && install -y python-minimal)
+    - raw: >
+        test -e /usr/bin/python3 || (apt -y update && install -y python-minimal)
 
   tasks:
-
     - name: install requirements
       become: true
       tags:
@@ -22,4 +22,3 @@
           - nmap
           - jq
           - default-jdk
-
