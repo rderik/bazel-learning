@@ -1,0 +1,2 @@
+[server]
+10.211.55.45 ansible_python_interpreter=/usr/bin/python3  ansible_user=vagrant

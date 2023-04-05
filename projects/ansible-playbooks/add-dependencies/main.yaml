@@ -1,0 +1,24 @@
+---
+- name: SecurityLab Setup
+  gather_facts: false
+  hosts: server
+  pre_tasks:
+    - raw: >
+        test -e /usr/bin/python3 || (apt -y update && install -y python-minimal)
+
+  tasks:
+    - name: install requirements
+      become: true
+      tags:
+        - install-dependencies
+      apt:
+        state: present
+        name:
+          - git
+          - bash-completion
+          - silversearcher-ag
+          - unzip
+          - direnv
+          - nmap
+          - jq
+          - default-jdk
