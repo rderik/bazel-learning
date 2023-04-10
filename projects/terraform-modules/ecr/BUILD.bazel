@@ -1,11 +1,10 @@
 load("//:bazel/terraform.bzl", "terraform_fmt")
 
 terraform_fmt(
-  name = "ecr",
-  files = [
-    "main.tf",
-    "outputs.tf",
-    "variables.tf",
-  ],
+    name = "ecr",
+    files = [
+        "main.tf",
+        "outputs.tf",
+        "variables.tf",
+    ],
 )
-

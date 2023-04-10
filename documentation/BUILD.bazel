@@ -1,0 +1,26 @@
+load("//:bazel/archive.bzl", "archive")
+
+archive(
+    name = "documentation",
+    out = "documentation.tgz",
+    files = [
+        "README.md",
+    ],
+)
+
+archive(
+    name = "release",
+    out = "release.tgz",
+    files = [
+        "RELEASE.md",
+    ],
+)
+
+archive(
+    name = "all",
+    out = "all.tgz",
+    files = [
+        "README.md",
+        "RELEASE.md",
+    ],
+)

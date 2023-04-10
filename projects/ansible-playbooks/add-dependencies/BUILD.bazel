@@ -1,9 +1,8 @@
 load("//:bazel/yamllint.bzl", "yamllint")
 
 yamllint(
-  name = "ansible-playbook",
-  files = [
-    "main.yaml",
-  ],
+    name = "ansible-playbook",
+    files = [
+        "main.yaml",
+    ],
 )
-

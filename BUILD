@@ -1,26 +1,7 @@
-load("//:bazel/archive.bzl", "archive")
+load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
-archive(
-    name = "documentation",
-    out = "documentation.tgz",
-    files = [
-        "documentation/README.md",
-    ],
-)
-
-archive(
-    name = "release",
-    out = "release.tgz",
-    files = [
-        "documentation/RELEASE.md",
-    ],
-)
-
-archive(
-    name = "all",
-    out = "all.tgz",
-    files = [
-        "documentation/README.md",
-        "documentation/RELEASE.md",
-    ],
+# buildifier is a tool for formatting bazel BUILD and .bzl files with a standard convention.
+# https://github.com/bazelbuild/buildtools/tree/master/buildifier
+buildifier(
+    name = "buildifier",
 )
