@@ -1,0 +1,9 @@
+name: E2E Tests
+
+runs:
+  using: "composite"
+  steps: 
+    - name: Echo
+      shell: bash
+      run: |
+        echo "e2e successful"
